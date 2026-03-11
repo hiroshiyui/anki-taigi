@@ -21,7 +21,7 @@ jobs:
           bundler-cache: true
 
       - name: Generate Anki deck
-        run: ruby generate.rb
+        run: bundle exec rake build
 
       - name: Rename output with version
         run: |
