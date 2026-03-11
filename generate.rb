@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+VERSION = "0.0.1"
+
 require_relative "lib/moe_fetcher"
 require_relative "lib/ods_parser"
 require_relative "lib/taigi_dict"
@@ -13,6 +15,9 @@ CSV_DIR = "data/csv"
 AUDIO_DIR = "output/audio"
 OUTPUT_TXT = "output/taigi_deck.txt"
 OUTPUT_APKG = "output/taigi.apkg"
+
+puts "anki-taigi v#{VERSION}"
+puts
 
 # Step 1: Download
 puts "=== Step 1: Fetch MOE open data ==="
