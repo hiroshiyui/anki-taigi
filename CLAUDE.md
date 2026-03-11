@@ -20,6 +20,7 @@ rake fetch     # download data from MOE
 rake parse     # parse ODS → CSV cache
 rake audio     # extract MP3s from zips
 rake export    # rebuild deck from cached CSV + audio
+rake test      # run tests
 rake clean     # remove output/
 rake clobber   # remove output/ + data/
 ```
