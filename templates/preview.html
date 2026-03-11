@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>台語辭典 Anki Card Preview</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 20px;
+      background: #e8e5e0;
+      font-family: sans-serif;
+    }
+    .preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .preview h2 {
+      font-size: 14px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .phone {
+      width: 375px;
+      min-height: 500px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .toggle {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+  <link rel="stylesheet" href="card.css">
+  <style>
+    /* Override .card for preview container */
+    .card { border-radius: 0; min-height: 500px; }
+  </style>
+</head>
+<body>
+
+<div class="preview">
+  <h2>Front (Question)</h2>
+  <div class="phone">
+    <div class="card" id="front">
+      <div class="hanji">食飯</div>
+      <div class="lomaji">tsia̍h-pn̄g</div>
+      <div class="audio-front">🔊</div>
+    </div>
+  </div>
+</div>
+
+<div class="preview">
+  <h2>Back (Answer)</h2>
+  <div class="phone">
+    <div class="card" id="back">
+      <div class="hanji">食飯</div>
+      <div class="lomaji">tsia̍h-pn̄g</div>
+      <div class="audio-front">🔊</div>
+
+      <hr id="answer">
+
+      <div class="pos">動詞</div>
+      <div class="explanation">吃飯。用餐。</div>
+
+      <div class="examples">
+        <div class="example-item">
+          <div class="example-hanji">時間到矣，來食飯。</div>
+          <div class="example-lomaji">Sî-kan kàu--ah, lâi tsia̍h-pn̄g.</div>
+          <div class="example-chinese">時間到了，來吃飯。</div>
+        </div>
+        <div class="example-item">
+          <div class="example-hanji">你食飯未？</div>
+          <div class="example-lomaji">Lí tsia̍h-pn̄g--buē?</div>
+          <div class="example-chinese">你吃飯了沒？</div>
+        </div>
+      </div>
+
+      <div class="audio-back">🔊 🔊</div>
+
+      <div class="category">生活起居</div>
+    </div>
+  </div>
+</div>
+
+<div class="toggle">
+  <label><input type="checkbox" id="nightToggle"> Night mode</label>
+</div>
+
+<script>
+  document.getElementById('nightToggle').addEventListener('change', function() {
+    document.querySelectorAll('.card').forEach(el => {
+      el.classList.toggle('nightMode', this.checked);
+    });
+  });
+</script>
+</body>
+</html>

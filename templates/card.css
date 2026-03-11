@@ -1,0 +1,167 @@
+.card {
+  font-family: "Noto Sans TC", "Noto Sans", "Microsoft JhengHei", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: #2c2c2c;
+  background: #f7f6f3;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* ── Front ── */
+
+.hanji {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.lomaji {
+  font-size: 22px;
+  color: #4a7c59;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.audio-front {
+  margin: 8px 0;
+}
+
+/* ── Divider ── */
+
+hr#answer {
+  border: none;
+  border-top: 2px solid #d4d0c8;
+  margin: 16px auto;
+  width: 60%;
+}
+
+/* ── Back ── */
+
+.pos {
+  display: inline-block;
+  font-size: 13px;
+  color: #f7f6f3;
+  background: #8b7e6a;
+  border-radius: 4px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+
+.explanation {
+  font-size: 22px;
+  color: #1a1a1a;
+  margin: 10px 0 16px;
+}
+
+/* ── Examples ── */
+
+.examples {
+  text-align: left;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  background: #efece6;
+  border-radius: 8px;
+  border-left: 4px solid #4a7c59;
+}
+
+.example-item {
+  margin-bottom: 12px;
+}
+
+.example-item:last-child {
+  margin-bottom: 0;
+}
+
+.example-hanji {
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.example-lomaji {
+  font-size: 15px;
+  color: #4a7c59;
+  font-style: italic;
+}
+
+.example-chinese {
+  font-size: 15px;
+  color: #6b6560;
+}
+
+.audio-back {
+  margin: 12px 0 4px;
+}
+
+/* ── Category tag ── */
+
+.category {
+  font-size: 12px;
+  color: #a09a90;
+  margin-top: 16px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Night mode ── */
+
+.nightMode .card,
+.night_mode .card {
+  background: #1e1e1e;
+  color: #d4d0c8;
+}
+
+.nightMode .hanji,
+.night_mode .hanji {
+  color: #e8e4dc;
+}
+
+.nightMode .lomaji,
+.night_mode .lomaji {
+  color: #7cb88a;
+}
+
+.nightMode hr#answer,
+.night_mode hr#answer {
+  border-top-color: #3a3a3a;
+}
+
+.nightMode .pos,
+.night_mode .pos {
+  background: #5a5347;
+  color: #d4d0c8;
+}
+
+.nightMode .explanation,
+.night_mode .explanation {
+  color: #e0dcd4;
+}
+
+.nightMode .examples,
+.night_mode .examples {
+  background: #2a2824;
+  border-left-color: #7cb88a;
+}
+
+.nightMode .example-hanji,
+.night_mode .example-hanji {
+  color: #e0dcd4;
+}
+
+.nightMode .example-lomaji,
+.night_mode .example-lomaji {
+  color: #7cb88a;
+}
+
+.nightMode .example-chinese,
+.night_mode .example-chinese {
+  color: #9a958d;
+}
+
+.nightMode .category,
+.night_mode .category {
+  color: #6b6560;
+}

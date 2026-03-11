@@ -19,6 +19,7 @@ module ApkgExporter
   FIELD_SEPARATOR = "\x1f"
   DECK_ID = 1_700_000_000_000
   MODEL_ID = 1_700_000_000_001
+  TEMPLATE_DIR = File.expand_path("../templates", __dir__)
 
   BASE91_TABLE = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" \
                  "0123456789!#$%&()*+,-./:;<=>?@[]^_`{|}~"
@@ -166,7 +167,7 @@ module ApkgExporter
     {
       id: MODEL_ID, name: "台語辭典", type: 0, mod: Time.now.to_i, usn: -1,
       sortf: 0, did: DECK_ID,
-      css: model_css,
+      css: load_template("card.css"),
       latexPre: "", latexPost: "",
       flds: fields,
       tmpls: [card_template],
@@ -175,51 +176,15 @@ module ApkgExporter
     }
   end
 
-  def model_css
-    <<~CSS
-      .card {
-        font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-        font-size: 20px;
-        text-align: center;
-        color: #333;
-        background-color: #fafafa;
-      }
-      .hanji { font-size: 40px; font-weight: bold; color: #1a1a1a; }
-      .lomaji { font-size: 24px; color: #2e7d32; margin: 8px 0; }
-      .pos { font-size: 14px; color: #888; font-style: italic; }
-      .explanation { font-size: 20px; margin: 12px 0; }
-      .examples { text-align: left; margin: 12px auto; max-width: 500px; font-size: 16px; }
-      .examples .hanji-ex { color: #1a1a1a; }
-      .examples .lomaji-ex { color: #2e7d32; font-size: 14px; }
-      .examples .chinese-ex { color: #666; font-size: 14px; }
-      .category { font-size: 12px; color: #999; margin-top: 16px; }
-      hr#answer { border: 1px solid #ddd; }
-    CSS
+  def load_template(name)
+    File.read(File.join(TEMPLATE_DIR, name), encoding: "utf-8").strip
   end
 
   def card_template
     {
       name: "台語卡片", ord: 0,
-      qfmt: <<~HTML.strip,
-        <div class="hanji">{{漢字}}</div>
-        <div class="lomaji">{{羅馬字}}</div>
-        {{詞目音檔}}
-      HTML
-      afmt: <<~HTML.strip,
-        {{FrontSide}}
-        <hr id=answer>
-        <div class="pos">{{詞性}}</div>
-        <div class="explanation">{{解說}}</div>
-        {{#例句漢字}}
-        <div class="examples">
-          <div class="hanji-ex">{{例句漢字}}</div>
-          <div class="lomaji-ex">{{例句羅馬字}}</div>
-          <div class="chinese-ex">{{例句華語}}</div>
-        </div>
-        {{/例句漢字}}
-        {{例句音檔}}
-        <div class="category">{{分類}}</div>
-      HTML
+      qfmt: load_template("front.html"),
+      afmt: load_template("back.html"),
       bqfmt: "", bafmt: "", did: nil
     }
   end
