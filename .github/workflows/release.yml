@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0"
+          bundler-cache: true
+
+      - name: Generate Anki deck
+        run: ruby generate.rb
+
+      - name: Rename output with version
+        run: |
+          VERSION="${GITHUB_REF_NAME}"
+          cp output/taigi.apkg "output/taigi-${VERSION}.apkg"
+          cp output/taigi_deck.txt "output/taigi_deck-${VERSION}.txt"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "教育部台語辭典 Anki Deck ${{ github.ref_name }}"
+          body: |
+            Anki flashcard deck generated from [教育部臺灣台語常用詞辭典](https://sutian.moe.edu.tw/) open data.
+
+            ### Contents
+            - **23,106** notes with definitions and example sentences
+            - **34,286** embedded MP3 audio files (pronunciation)
+
+            ### How to use
+            1. Download `taigi-${{ github.ref_name }}.apkg`
+            2. Open Anki → File → Import → select the downloaded file
+          files: |
+            output/taigi-${{ github.ref_name }}.apkg
+            output/taigi_deck-${{ github.ref_name }}.txt
