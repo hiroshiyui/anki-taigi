@@ -16,8 +16,8 @@ Generate [Anki](https://apps.ankiweb.net/) flashcard decks for **Taiwanese Taigi
   - **Front**: 漢字 (Han characters) + 羅馬字 (Tâi-lô romanization) + pronunciation audio
   - **Back**: 詞性 (part of speech) + 解說 (explanation) + 例句 (example sentences with audio)
   - 每張字卡包含：
-    - **面頂**：漢字 + 羅馬字 (台羅) + 讀音音檔
-    - **尻脊**：詞性 + 解說 + 例句（有音檔）
+    - **正面**：漢字 + 羅馬字 (台羅) + 讀音音檔
+    - **後面**：詞性 + 解說 + 例句（有音檔）
 - Cards are tagged by category (e.g. 交際應酬, 數詞、量詞)
   - 字卡會照類別（譬如：交際應酬, 數詞、量詞）來拍標籤
 
